@@ -14,7 +14,12 @@ http.createServer(function(req, res) {
         } else {
             dealWithStatic(pathname, realPath, res);
         }
-}).listen(80);
+});
+
+if (!module.parent) {
+    http.listen(80);
+    console.log("Server listening on port %d in %s mode", http.address().port, http.settings.env);
+}
 
 function gotoIndex(res) {
         var readPath = __dirname + '/' + url.parse('index.html').pathname;
