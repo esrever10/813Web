@@ -3,7 +3,7 @@ var os = require('os');
 
 var numCPUs = os.cpus().length;
 
-var works = {};
+var workers = {};
 if (cluster.isMaster) {
     cluster.on('death', function (worker) {
         delete workers[worker.pid];
