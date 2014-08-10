@@ -68,3 +68,4 @@ function dealWithStatic(pathname, realPath, res) {
         }
     });
 }
+module.exports = app;
