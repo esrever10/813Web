@@ -1,7 +1,7 @@
 var http = require('http'),
     fs = require('fs'),
     url = require('url');
-http.createServer(function(req, res) {
+var app = http.createServer(function(req, res) {
         var pathname = url.parse(req.url).pathname;
         var realPath = __dirname + '/' + pathname;
         console.log(req.url);
@@ -17,7 +17,7 @@ http.createServer(function(req, res) {
 });
 
 if (!module.parent) {
-    http.listen(80);
+    app.listen(80);
     console.log("Server listening on port %d in %s mode", http.address().port, http.settings.env);
 }
 
