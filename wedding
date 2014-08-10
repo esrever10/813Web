@@ -1,10 +1,10 @@
 #! /bin/sh
 
 NODE_ENV=production
-DAEMON="node cluster.js"
+DAEMON="node /root/hackers/node_work/813Web/cluster.js"
 NAME=wedding
 DESC=wedding
-PIDFILE="wedding.pid"
+PIDFILE="/root/hackers/node_work/813Web/wedding.pid"
 
 case "$1" in
   start)
