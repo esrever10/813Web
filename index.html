@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Wedding anniversary~</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('static/digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="static/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="static/jquery.js"></script>
+	<script type="text/javascript" src="static/garden.js"></script>
+    <script type="text/javascript" src="static/functions.js"></script>
+</head>
+
+<body>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				<span class="comments">/**</span><br />
+				<span class="space"/><span class="comments">* Dear, I know you can understand many computer language, </span><br />
+				<span class="space"/><span class="comments">* so I write some code to celebrate our 1st anniversary.</span><br />
+				<span class="space"/><span class="comments">*/</span><br />
+				Boy *i = <span class="keyword">new</span> Boy(<span class="string">"Caochen"</span>);<br />
+				Girl *u = <span class="keyword">new</span> Girl(<span class="string">"Liwei"</span>);<br />
+				<span class="comments">// March 13, 2010, I told you I love you. </span><br />
+				i-&gt;love(u);<br />
+				<span class="comments">// Luckily, you accepted and became my girlfriend.</span><br />
+				u-&gt;accepted(i);<br />
+				<span class="comments">// Since then, we have been through a lot together.</span><br />
+				<span class="comments">// ...... Even almost lost you.</span><br />
+				i-&gt;miss(u);<br />
+				<span class="comments">// However, I was lucky.</span><br />
+				<span class="comments">// After that we had overcome many difficulties.</span><br />
+				<span class="comments">// August 13, 2013, we're married.</span><br />
+				i-&gt;marry(u);<br />
+				<span class="comments">// You say that I don't understand romantic.</span><br />
+				<span class="comments">// Sure, I'm not good at romantic.</span><br />
+				<span class="comments">// I looks like stupid and immature.</span><br />
+				<span class="comments">// But I try my best, at least, I can write the code.</span><br />
+				<span class="keyword">Year</span> years = <span class="keyword">1024</span>;<br />
+				<span class="comments">// Why just 1024 years? It's a beautiful number~</span><br />
+				<span class="keyword">while</span> (years) {<br />
+				<span class="comments">// I'm sure that the following code is synchronous.</span><br />
+				<span class="comments">// And will not throw any exception.</span><br />
+				<span class="placeholder"/>i-&gt;takeCareOfYou(Year(1));<br />
+				<span class="placeholder"/>--years;<br />
+				}<br />
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						Liwei, I have fallen in love with you for
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						Love u forever and ever.<br/>
+						<div class="signature">- Caochen</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2010, 3, 1);
+		together.setHours(20);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+</html>
