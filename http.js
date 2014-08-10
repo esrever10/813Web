@@ -1,7 +1,7 @@
 var http = require('http'),
     fs = require('fs'),
     url = require('url');
-var app = http.createServer(function(req, res) {
+var app = module.exports = http.createServer(function(req, res) {
         var pathname = url.parse(req.url).pathname;
         var realPath = __dirname + '/' + pathname;
         console.log(req.url);
@@ -68,4 +68,3 @@ function dealWithStatic(pathname, realPath, res) {
         }
     });
 }
-module.exports = app;
