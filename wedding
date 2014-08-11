@@ -1,4 +1,7 @@
-#! /bin/sh
+#add for chkconfig
+#chkconfig: 2345 70 30
+#description: 813Web 
+#processname: wedding
 
 NODE_ENV=production
 DAEMON="node /root/hackers/node_work/813Web/cluster.js"
