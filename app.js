@@ -51,6 +51,9 @@ function dealWithStatic(pathname, realPath, res) {
                 case 'js':
                     mmieType = 'text/javascript';
                     break;
+				case 'mp3':
+					mmieType = 'audio/mp3';
+					break;
                 default:
                     mmieType = 'text/plain';
                     break;
