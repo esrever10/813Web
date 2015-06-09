@@ -10,15 +10,25 @@ var app = module.exports = http.createServer(function(req, res) {
         if (pathname == '/favicon.ico') {
             return;
         } else if (pathname == '/index' || pathname == '/') {
-            gotoIndex(res);
-        } else {
-            dealWithStatic(pathname, realPath, res);
+            //gotoIndex(res);
+        } else if (pathname == '/cookie.html'){
+	    console.log(req.headers.cookie);
+    	    res.writeHead(200, {'Content-Type':'text/html'});
+   	    res.end("hacked you");
         }
 });
 
 if (!module.parent) {
     app.listen(80);
-    console.log("Server listening on port %d in %s mode", http.address().port, http.settings.env);
+//    console.log("Server listening on port %d in %s mode", http.address().port, http.settings.env);
+}
+
+function gotoPhp(res) {
+    var readPath = __dirname + '/' + url.parse('cookie.html').pathname;
+    console.log(readPath);
+    var indexPage = fs.readFileSync(readPath);
+    res.writeHead(200, {'Content-Type':'text/html'});
+    res.end(indexPage);
 }
 
 function gotoIndex(res) {
